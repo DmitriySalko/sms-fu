@@ -45,7 +45,7 @@ module SMSFu
       if @delivery == :pony
         Pony.mail({:to => email, :body => message, :from => from}.merge!(@pony_config))
       else
-        SMSNotifier.send_sms(email, message, from).deliver
+        SMSNotifier.send_sms(email, message, from).deliver_now
       end
     end
   end
